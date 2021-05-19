@@ -1,5 +1,5 @@
-version: '3.7'
- 
+version: "3.7"
+
 services:
   mariadb:
     image: mariadb:10.4
@@ -10,6 +10,14 @@ services:
       - mariadb-data:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: qwerty
+
+  turnosapi:
+    image: jrincon/turnosapi:latest
+    ports:
+      - 8080:8080
+    restart: always
+    depends_on:
+      - mariadb
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
