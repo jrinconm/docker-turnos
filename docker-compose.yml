@@ -19,6 +19,14 @@ services:
     depends_on:
       - mariadb
 
+  turnosfront:
+    image: jrincon/turnosfront:latest
+    ports:
+      - 80:80
+    restart: always
+    depends_on:
+      - turnosapi
+
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
     ports:
